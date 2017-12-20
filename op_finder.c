@@ -20,6 +20,7 @@ void find_op(void)
 		{"nop", nop},
 		{"#", nop},
 		{"pchar", pchar},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 

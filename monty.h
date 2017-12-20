@@ -77,5 +77,5 @@ void mod(stack_t **stack, unsigned int line_number);
 void find_op(void);
 /* Stack function in functions_4.c */
 void pchar(stack_t **stack, unsigned int line_number);
-
+void pstr(stack_t **stack, unsigned int line_number);
 #endif
