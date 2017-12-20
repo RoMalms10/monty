@@ -35,7 +35,23 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+ /**
+  * struct vars_s - holds all variables to be passed
+  * @tokened: tokenized string of our input from file
+  * @head: head of our stack
+  * @line_number: line number that was just read from file
+  *
+  * Description: A struct that we make global to pass variables
+  *  for stack, queues, LIFO, FIFO holberton project
+  */
+ typedef struct vars_s
+ {
+        char **tokened;
+        struct stack_s *head;
+        unsigned int line_number;
+ } vars_t;
 
+extern vars_t *vars;
 /**
   * Function Declarations here
   */

@@ -6,14 +6,16 @@
   * @argv: Arguments names
   * Return: 0 on success, exit on failures
   */
+vars_t *vars;
 int main(int argc, char **argv)
 {
 	char *buf = NULL;
 	int n = 0;
 	FILE *fp;
 	int l_count;
-	/*vars_t *vars;*/
+	vars_t temp = {NULL, NULL, 1};
 
+	vars = &temp;
 	if (argc != 2)
 	{
 		printf("USAGE: monty file\n");
