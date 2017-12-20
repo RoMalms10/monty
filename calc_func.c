@@ -10,7 +10,7 @@ void add(stack_t **stack, unsigned int line_number)
 	(void) stack;
 	(void) line_number;
 
-	if (vars->head != NULL)
+	if (vars->head != NULL && vars->head->next != NULL)
 	{
 		vars->head->next->n = vars->head->n + vars->head->next->n;
 		vars->head = vars->head->next;
@@ -35,7 +35,7 @@ void sub(stack_t **stack, unsigned int line_number)
 	(void) stack;
 	(void) line_number;
 
-	if (vars->head != NULL)
+	if (vars->head != NULL && vars->head->next != NULL)
 	{
 		vars->head->next->n = vars->head->next->n - vars->head->n;
 		vars->head = vars->head->next;
@@ -60,7 +60,7 @@ void divf(stack_t **stack, unsigned int line_number)
 	(void) line_number;
 	if (vars->head->n == 0)
 		exit_function(13);
-	if (vars->head != NULL)
+	if (vars->head != NULL && vars->head->next != NULL)
 	{
 		vars->head->next->n = vars->head->next->n / vars->head->n;
 		vars->head = vars->head->next;
@@ -84,7 +84,7 @@ void mul(stack_t **stack, unsigned int line_number)
 	(void) stack;
 	(void) line_number;
 
-	if (vars->head != NULL)
+	if (vars->head != NULL && vars->head->next != NULL)
 	{
 		vars->head->next->n = vars->head->n * vars->head->next->n;
 		vars->head = vars->head->next;
@@ -110,7 +110,7 @@ void mod(stack_t **stack, unsigned int line_number)
 
 	if (vars->head->n == 0)
 		exit_function(13);
-	if (vars->head != NULL)
+	if (vars->head != NULL && vars->head->next != NULL)
 	{
 		vars->head->next->n = vars->head->next->n % vars->head->n;
 		vars->head = vars->head->next;
