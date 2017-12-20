@@ -54,19 +54,24 @@ typedef struct instruction_s
  } vars_t;
 
 extern vars_t *vars;
-
+/* Stack functions functions.c */
+stack_t *add_stack(void)
 void tokenize(char *buf);
 void free_token(void);
 void pall(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
+/* More stack functions functions_2.c */
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
-void find_op(void);
 void swap(stack_t **stack, unsigned int line_number);
+/* Calculation functions functions_3.c */
 void add(stack_t **stack, unsigned int line_number);
 void divf(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
+/* Function finder op_finder.c */
+void find_op(void);
+
 #endif

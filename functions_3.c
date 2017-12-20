@@ -118,6 +118,10 @@ void mod(stack_t **stack, unsigned int line_number)
 	(void) stack;
 	(void) line_number;
 
+	if (vars->head->n == 0)
+	{
+		printf("L%d: division by zero\n", vars->line_number);
+	}
 	if (vars->head != NULL)
 	{
 		vars->head->next->n = vars->head->next->n % vars->head->n;
