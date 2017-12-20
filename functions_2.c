@@ -70,4 +70,15 @@ void swap(stack_t **stack, unsigned int line_number)
 		free_token();
 		exit(EXIT_FAILURE);
 	}
+  
+ /**
+  * nop - function that does nothing
+  * @stack: the double pointer to the head (NULL)
+  * @line_number: the line we're on (always passed 0)
+  * Return: nothing, void
+  */
+void nop(stack_t **stack, unsigned int line_number)
+{
+	(void) stack;
+	(void) line_number;
 }

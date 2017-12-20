@@ -17,6 +17,8 @@ void find_op(void)
 		{"mul", mul},
 		{"mod", mod},
 		{"sub", sub},
+		{"nop", nop},
+		{"#", nop},
 		{NULL, NULL}
 	};
 
