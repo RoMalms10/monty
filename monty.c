@@ -31,6 +31,8 @@ int main(int argc, char **argv)
 	for (; getline(&buf, &n, fp) > 0; vars->line_number++)
 	{
 		vars->tokened = malloc(sizeof(char *) * 2);
+		if (vars->tokened == NULL)
+			printf("Error: malloc failed\n");
 		tokenize(buf);
 		find_op();
 		free_token();
