@@ -42,10 +42,7 @@ void tokenize(char *buf)
 		if (vars->tokened[i] == NULL)
 		{
 			if (i == 1)
-			{
-				printf("Is it in strtok?\n"); /*delete*/
 				free_token();
-			}
 			printf("Error: malloc failed\n");
 			exit(EXIT_FAILURE);
 		}
