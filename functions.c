@@ -42,7 +42,10 @@ void tokenize(char *buf)
 		if (vars->tokened[i] == NULL)
 		{
 			if (i == 1)
+			{
+				printf("Is it in strtok?\n"); /*delete*/
 				free_token();
+			}
 			printf("Error: malloc failed\n");
 			exit(EXIT_FAILURE);
 		}
@@ -56,8 +59,10 @@ void tokenize(char *buf)
   */
 void free_token(void)
 {
-	free(vars->tokened[0]);
-	free(vars->tokened[1]);
+	if (vars->tokened[0] != NULL)
+		free(vars->tokened[0]);
+	if (vars->tokened[1] != NULL)
+		free(vars->tokened[1]);
 	vars->tokened = NULL;
 }
 
@@ -122,6 +127,4 @@ void push(stack_t **stack, unsigned int line_number)
 	printf("L%d: usage: push integer", vars->line_number);
 	free_token();
 	exit(EXIT_FAILURE);
-
-
 }

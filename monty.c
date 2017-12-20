@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 	char *buf = NULL;
 	size_t n = 0;
 	FILE *fp;
-	vars_t temp = {NULL, NULL, 0};
+	vars_t temp = {NULL, NULL, 1};
 
 	vars = &temp;
 	if (argc != 2)
@@ -34,13 +34,9 @@ int main(int argc, char **argv)
 		if (vars->tokened == NULL)
 			printf("Error: malloc failed\n");
 		tokenize(buf);
-		/*pass to find function*/
-		/*pass to execute function*/
+		find_op();
 		free_token();
 	}
-/*	printf("Argument 1: %s\n", vars->tokened[0]); */
-/*	printf("Argument 2: %s\n", vars->tokened[1]); */
-/*	printf("Line number: %d\n", vars->line_number); */
 	fclose(fp);
 	return (0);
 }
