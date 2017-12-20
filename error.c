@@ -6,7 +6,7 @@
  */
 void exit_function(unsigned int err_num)
 {
-	char *s[] = {"swap","add","sub","div","mul","mod",};
+	char *s[] = {"swap", "add", "sub", "div", "mul", "mod"};
 	int ln = vars->line_number;
 
 	if (err_num == 1)
@@ -41,16 +41,17 @@ void exit_function(unsigned int err_num)
 }
 /**
  * free_list - free a stack_t list
+ * @head: head of list to free
  * Return: void
  */
 void free_list(stack_t *head)
 {
 	if (head != NULL)
-		{
-			if (head->next != NULL)
-				free_list(head->next);
-			free(head);
-		}
+	{
+		if (head->next != NULL)
+			free_list(head->next);
+		free(head);
+	}
 }
 /**
  * free_buf - free getline buffer
@@ -70,7 +71,8 @@ void free_buf(void)
   * Return: Nothing, void
   */
 void free_token(void)
-{	if (vars->tokened != NULL)
+{
+	if (vars->tokened != NULL)
 	{
 		if (vars->tokened[0] != NULL)
 			free(vars->tokened[0]);

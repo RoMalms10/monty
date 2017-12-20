@@ -18,9 +18,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -33,31 +33,31 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
- /**
-  * struct vars_s - holds all variables to be passed
-  * @fname: string holding file name
-  * @fp: file pointer to open file
-  * @tokened: tokenized string of our input from file
-  * @head: head of our stack
-  * @line_number: line number that was just read from file
-  * @buf: buffer for the line in the file
-  *
-  * Description: A struct that we make global to pass variables
-  *  for stack, queues, LIFO, FIFO holberton project
-  */
- typedef struct vars_s
- {
-        char *fname;
-        FILE *fp;
-        char **tokened;
-        char *buf;
-        struct stack_s *head;
-        unsigned int line_number;
- } vars_t;
+/**
+ * struct vars_s - holds all variables to be passed
+ * @fname: string holding file name
+ * @fp: file pointer to open file
+ * @tokened: tokenized string of our input from file
+ * @head: head of our stack
+ * @line_number: line number that was just read from file
+ * @buf: buffer for the line in the file
+ *
+ * Description: A struct that we make global to pass variables
+ *  for stack, queues, LIFO, FIFO holberton project
+ */
+typedef struct vars_s
+{
+	char *fname;
+	FILE *fp;
+	char **tokened;
+	char *buf;
+	struct stack_s *head;
+	unsigned int line_number;
+} vars_t;
 
 extern vars_t *vars;
 /* Stack functions functions.c */

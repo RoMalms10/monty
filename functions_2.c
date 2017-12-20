@@ -50,7 +50,7 @@ void swap(stack_t **stack, unsigned int line_number)
 
 	(void) stack;
 	(void) line_number;
-	if (vars->head != NULL)
+	if (vars->head != NULL && vars->head->next != NULL)
 	{
 		temp = vars->head->n;
 		vars->head->n = vars->head->next->n;
@@ -61,11 +61,12 @@ void swap(stack_t **stack, unsigned int line_number)
 		exit_function(7);
 	}
 }
- /**
-  * nop - function that does nothing
-  * @stack: the double pointer to the head (NULL)
-  * @line_number: the line we're on (always passed 0)
-  * Return: nothing, void
+
+/**
+  * nop - does nothing
+  * @stack: not used
+  * @line_number: not used
+  * Return: void
   */
 void nop(stack_t **stack, unsigned int line_number)
 {
