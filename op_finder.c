@@ -18,7 +18,6 @@ void find_op(void)
 		{"mod", mod},
 		{"sub", sub},
 		{"nop", nop},
-		{"#", nop},
 		{"pchar", pchar},
 		{"pstr", pstr},
 		{NULL, NULL}
@@ -27,7 +26,10 @@ void find_op(void)
 	int x;
 
 	if (vars->tokened[0] == NULL)
+		return;
+	if (vars->tokened[0][0] == '#')
 	{
+		ops[10].f(NULL, 0);
 		return;
 	}
 	for (x = 0; ops[x].opcode != NULL; x++)
