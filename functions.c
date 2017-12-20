@@ -34,6 +34,8 @@ void tokenize(char *buf)
 	char *delim;
 	int i;
 
+	vars->tokened[0] = NULL;
+	vars->tokened[1] = NULL;
 	delim = " '\n'";
 	token = strtok(buf, delim);
 	for (i = 0; token != NULL && i < 2; i++)
@@ -42,10 +44,7 @@ void tokenize(char *buf)
 		if (vars->tokened[i] == NULL)
 		{
 			if (i == 1)
-			{
-				printf("Is it in strtok?\n"); /*delete*/
 				free_token();
-			}
 			printf("Error: malloc failed\n");
 			exit(EXIT_FAILURE);
 		}
@@ -59,12 +58,12 @@ void tokenize(char *buf)
   */
 void free_token(void)
 {
-	free(vars->buf);
-	vars->buf = NULL;
 	if (vars->tokened[0] != NULL)
 		free(vars->tokened[0]);
 	if (vars->tokened[1] != NULL)
 		free(vars->tokened[1]);
+	if (vars->tokened != NULL)
+		free(vars->tokened);
 	vars->tokened = NULL;
 }
 

@@ -9,10 +9,8 @@
 vars_t *vars;
 int main(int argc, char **argv)
 {
-//	char *buf = NULL;
 	size_t n = 0;
-	FILE *fp;
-	vars_t temp = {NULL, NULL, NULL, 1};
+	vars_t temp = {NULL, NULL, NULL, NULL, 1};
 
 	vars = &temp;
 	if (argc != 2)
@@ -21,14 +19,14 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 
-	fp = fopen(argv[1], "r");
-	if (fp == NULL)
+	vars->fp = fopen(argv[1], "r");
+	if (vars->fp == NULL)
 	{
 		printf("Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 
-	for (; getline(&(vars->buf), &n, fp) > 0; vars->line_number++)
+	for (; getline(&(vars->buf), &n, vars->fp) > 0; vars->line_number++)
 	{
 		vars->tokened = malloc(sizeof(char *) * 2);
 		if (vars->tokened == NULL)
@@ -37,6 +35,7 @@ int main(int argc, char **argv)
 		find_op();
 		free_token();
 	}
-	fclose(fp);
+	free(vars->buf);
+	fclose(vars->fp);
 	return (0);
 }
