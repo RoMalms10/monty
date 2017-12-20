@@ -112,7 +112,7 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 	if (temp != NULL)
 	{
-		while (temp[i] != NULL)
+		while (temp[i] != '\0')
 		{
 			if (isdigit(temp[i]) == 0) /*0 if not digit*/
 			{
