@@ -38,9 +38,9 @@ int main(int argc, char **argv)
 		/*pass to execute function*/
 		free_token();
 	}
-//	printf("Argument 1: %s\n", vars->tokened[0]);
-//	printf("Argument 2: %s\n", vars->tokened[1]);
-//	printf("Line number: %d\n", vars->line_number);
+/*	printf("Argument 1: %s\n", vars->tokened[0]); */
+/*	printf("Argument 2: %s\n", vars->tokened[1]); */
+/*	printf("Line number: %d\n", vars->line_number); */
 	fclose(fp);
 	return (0);
 }
