@@ -56,5 +56,7 @@ extern vars_t *vars;
 
 void tokenize(char *buf);
 void free_token(void);
-
+void pall(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, unsigned int line_number);
+void find_op(void);
 #endif
