@@ -57,7 +57,7 @@ typedef struct instruction_s
 
 extern vars_t *vars;
 /* Stack functions functions.c */
-stack_t *add_stack(void)
+stack_t *add_stack(void);
 void tokenize(char *buf);
 void free_token(void);
 void pall(stack_t **stack, unsigned int line_number);
