@@ -18,7 +18,8 @@ void pchar(stack_t **stack, unsigned int line_number)
 }
 
 /**
-  * prints the ASCII character of the value stored in all of the linked list
+  * pstr - prints the ASCII character of the value stored in
+  * all of the linked list
   * @stack: the double pointer to the beginning of the list (NULL)
   * @line_number: the line of the file it's on (always passed 0)
   * Return: nothing, void

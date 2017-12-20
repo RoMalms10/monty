@@ -1,8 +1,6 @@
 #include "monty.h"
 /**
  * add_stack - add a node at the beggining of a stack_t
- * @h: double pointer to head of list
- * @n: number to add to n member
  * Return: Address of new node or NULL if failed
  */
 stack_t *add_stack(void)
@@ -61,7 +59,7 @@ void pall(stack_t **stack, unsigned int line_number)
 	(void) line_number;
 	if (head == NULL)
 		return;
-	while(head)
+	while (head)
 	{
 		printf("%d\n", head->n);
 		head = head->next;
