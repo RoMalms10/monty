@@ -99,7 +99,7 @@ void pall(stack_t **stack, unsigned int line_number)
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *newnode = NULL;
-	int i = 0, f = 0;
+	int i = 0, f = 0, negative = 0;
 	char *temp = vars->tokened[1];
 
 	(void) stack;
@@ -114,6 +114,12 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 	if (temp != NULL)
 	{
+		if (temp[0] == '-')
+		{
+			i++;
+			f = 1;
+			negative = 1;
+		}
 		while (temp[i] != '\0')
 		{
 			if (isdigit(temp[i]) == 0) /*0 if not digit*/
@@ -122,10 +128,15 @@ void push(stack_t **stack, unsigned int line_number)
 				break;
 			}
 			i++;
+			f = 0;
 		}
 		if (f == 0)
 		{
+			if (negative == 1)
+				temp = temp + 1;
 			newnode->n = atoi(temp);
+			if (negative == 1)
+				newnode->n *= -1;
 			return;
 		}
 	}
