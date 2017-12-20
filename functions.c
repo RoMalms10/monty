@@ -34,6 +34,8 @@ void tokenize(char *buf)
 	char *delim;
 	int i;
 
+	vars->tokened[0] = NULL;
+	vars->tokened[1] = NULL;
 	delim = " '\n'";
 	token = strtok(buf, delim);
 	for (i = 0; token != NULL && i < 2; i++)
@@ -56,12 +58,12 @@ void tokenize(char *buf)
   */
 void free_token(void)
 {
-	free(vars->buf);
-	vars->buf = NULL;
 	if (vars->tokened[0] != NULL)
 		free(vars->tokened[0]);
 	if (vars->tokened[1] != NULL)
 		free(vars->tokened[1]);
+	if (vars->tokened != NULL)
+		free(vars->tokened);
 	vars->tokened = NULL;
 }
 
