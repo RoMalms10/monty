@@ -12,12 +12,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 	(void) line_number;
 
 	if (vars->head->n < 0 || vars->head->n > 127)
-	{
-		printf("L%d: can't pchar,", vars->line_number);
-		printf(" value out of range\n");
-		free_token();
-		exit(EXIT_FAILURE);
-	}
+		exit_function(15);
 	putchar(vars->head->n);
 	putchar('\n');
 }
@@ -30,10 +25,10 @@ void pchar(stack_t **stack, unsigned int line_number)
   */
 void pstr(stack_t **stack, unsigned int line_number)
 {
-	(void) stack;
-	(void) line_number;
 	stack_t *traverse;
 
+	(void) stack;
+	(void) line_number;
 	traverse = vars->head;
 	while (traverse != NULL)
 	{

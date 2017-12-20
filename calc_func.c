@@ -20,9 +20,7 @@ void add(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		printf("L%d: can't add, stack too short\n", vars->line_number);
-		free_token();
-		exit(EXIT_FAILURE);
+		exit_function(8);
 	}
 }
 
@@ -47,9 +45,7 @@ void sub(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		printf("L%d: can't sub, stack too short\n", vars->line_number);
-		free_token();
-		exit(EXIT_FAILURE);
+		exit_function(9);
 	}
 }
 /**
@@ -63,9 +59,7 @@ void divf(stack_t **stack, unsigned int line_number)
 	(void) stack;
 	(void) line_number;
 	if (vars->head->n == 0)
-	{
-		printf("L%d: division by zero\n", vars->line_number);
-	}
+		exit_function(13);
 	if (vars->head != NULL)
 	{
 		vars->head->next->n = vars->head->next->n / vars->head->n;
@@ -76,9 +70,7 @@ void divf(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		printf("L%d: can't div, stack too short\n", vars->line_number);
-		free_token();
-		exit(EXIT_FAILURE);
+		exit_function(10);
 	}
 }
 /**
@@ -102,9 +94,7 @@ void mul(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		printf("L%d: can't mul, stack too short\n", vars->line_number);
-		free_token();
-		exit(EXIT_FAILURE);
+		exit_function(11);
 	}
 }
 /**
@@ -119,9 +109,7 @@ void mod(stack_t **stack, unsigned int line_number)
 	(void) line_number;
 
 	if (vars->head->n == 0)
-	{
-		printf("L%d: division by zero\n", vars->line_number);
-	}
+		exit_function(13);
 	if (vars->head != NULL)
 	{
 		vars->head->next->n = vars->head->next->n % vars->head->n;
@@ -132,8 +120,6 @@ void mod(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		printf("L%d: can't mod, stack too short\n", vars->line_number);
-		free_token();
-		exit(EXIT_FAILURE);
+		exit_function(12);
 	}
 }

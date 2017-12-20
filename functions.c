@@ -42,29 +42,9 @@ void tokenize(char *buf)
 	{
 		vars->tokened[i] = strdup(token);
 		if (vars->tokened[i] == NULL)
-		{
-			if (i == 1)
-				free_token();
-			printf("Error: malloc failed\n");
-			exit(EXIT_FAILURE);
-		}
+			exit_function(3);
 		token = strtok(NULL, delim);
 	}
-}
-
-/**
-  * free_token - Frees malloc'd tokens
-  * Return: Nothing, void
-  */
-void free_token(void)
-{
-	if (vars->tokened[0] != NULL)
-		free(vars->tokened[0]);
-	if (vars->tokened[1] != NULL)
-		free(vars->tokened[1]);
-	if (vars->tokened != NULL)
-		free(vars->tokened);
-	vars->tokened = NULL;
 }
 
 /**
@@ -103,14 +83,9 @@ void push(stack_t **stack, unsigned int line_number)
 
 	(void) stack;
 	(void) line_number;
-
 	newnode = add_stack();
 	if (newnode == NULL)
-	{
-		printf("Error: malloc failed\n");
-		free_token();
-		exit(EXIT_FAILURE);
-	}
+		exit_function(3);
 	if (temp != NULL)
 	{
 		if (temp[0] == '-')
@@ -139,8 +114,5 @@ void push(stack_t **stack, unsigned int line_number)
 			return;
 		}
 	}
-	/*exit here so don't have to write it twice*/
-	printf("L%d: usage: push integer\n", vars->line_number);
-	free_token();
-	exit(EXIT_FAILURE);
+	exit_function(4); /*exit here so don't have to write it twice*/
 }

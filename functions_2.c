@@ -12,11 +12,7 @@ void pint(stack_t **stack, unsigned int line_number)
 	(void) line_number;
 
 	if (vars->head == NULL)
-	{
-		printf("L%d: can't pint, stack empty\n", vars->line_number);
-		free_token();
-		exit(EXIT_FAILURE);
-	}
+		exit_function(5);
 	printf("%d\n", vars->head->n);
 }
 
@@ -35,11 +31,7 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	traverse = vars->head->next;
 	if (vars->head == NULL)
-	{
-		printf("L%d: can't pop an empty stack\n", vars->line_number);
-		free_token();
-		exit(EXIT_FAILURE);
-	}
+		exit_function(6);
 	if (traverse != NULL)
 		traverse->prev = NULL;
 	free(vars->head);
@@ -66,9 +58,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		printf("L%d: can't swap, stack too short\n", vars->line_number);
-		free_token();
-		exit(EXIT_FAILURE);
+		exit_function(7);
 	}
 }
  /**
