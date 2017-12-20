@@ -35,7 +35,8 @@ void exit_function(unsigned int err_num)
 	free_buf();
 	free_list(vars->head);
 	free_token();
-	fclose(vars->fp);
+	if (vars->fp != NULL)
+		fclose(vars->fp);
 	exit(EXIT_FAILURE);
 }
 /**

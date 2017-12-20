@@ -70,7 +70,7 @@ void pall(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pall - print all integers in a stack_t list
+ * push - print all integers in a stack_t list
  * @stack: NULL
  * @line_number: 0
  * Return: nothing, void
