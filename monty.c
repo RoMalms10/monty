@@ -9,10 +9,10 @@
 vars_t *vars;
 int main(int argc, char **argv)
 {
-	char *buf = NULL;
+//	char *buf = NULL;
 	size_t n = 0;
 	FILE *fp;
-	vars_t temp = {NULL, NULL, 1};
+	vars_t temp = {NULL, NULL, NULL, 1};
 
 	vars = &temp;
 	if (argc != 2)
@@ -28,12 +28,12 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 
-	for (; getline(&buf, &n, fp) > 0; vars->line_number++)
+	for (; getline(&(vars->buf), &n, fp) > 0; vars->line_number++)
 	{
 		vars->tokened = malloc(sizeof(char *) * 2);
 		if (vars->tokened == NULL)
 			printf("Error: malloc failed\n");
-		tokenize(buf);
+		tokenize(vars->buf);
 		find_op();
 		free_token();
 	}

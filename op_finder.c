@@ -19,6 +19,7 @@ void find_op(void)
 		{"sub", sub},
 		{"nop", nop},
 		{"#", nop},
+		{"pchar", pchar},
 		{NULL, NULL}
 	};
 

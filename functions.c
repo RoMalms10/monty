@@ -59,6 +59,8 @@ void tokenize(char *buf)
   */
 void free_token(void)
 {
+	free(vars->buf);
+	vars->buf = NULL;
 	if (vars->tokened[0] != NULL)
 		free(vars->tokened[0]);
 	if (vars->tokened[1] != NULL)
