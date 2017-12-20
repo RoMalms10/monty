@@ -12,6 +12,7 @@ int main(int argc, char **argv)
 	int n = 0;
 	FILE *fp;
 	int l_count;
+	/*vars_t *vars;*/
 
 	if (argc != 2)
 	{
@@ -28,7 +29,7 @@ int main(int argc, char **argv)
 
 	for (l_count = 1; getline(&buf, &n, fp) > 0; l_count++)
 	{
-		/*assign l_count to extern struct*/
+		/*vars->line_number = l_count;*/
 		tokenize(buf);
 		/*pass to find function*/
 		/*pass to execute function*/
