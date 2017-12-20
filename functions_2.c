@@ -29,9 +29,9 @@ void pop(stack_t **stack, unsigned int line_number)
 	(void) stack;
 	(void) line_number;
 
-	traverse = vars->head->next;
 	if (vars->head == NULL)
 		exit_function(6);
+	traverse = vars->head->next;
 	if (traverse != NULL)
 		traverse->prev = NULL;
 	free(vars->head);
