@@ -70,6 +70,7 @@ void free_token(void)
  * pall - print all integers in a stack_t list
  * @stack: NULL
  * @line_number: 0
+ * Return: nothing, void
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
@@ -90,6 +91,7 @@ void pall(stack_t **stack, unsigned int line_number)
  * pall - print all integers in a stack_t list
  * @stack: NULL
  * @line_number: 0
+ * Return: nothing, void
  */
 void push(stack_t **stack, unsigned int line_number)
 {
@@ -107,11 +109,11 @@ void push(stack_t **stack, unsigned int line_number)
 		free_token();
 		exit(EXIT_FAILURE);
 	}
-	if (temp)
+	if (temp != NULL)
 	{
-		while (temp[i])
+		while (temp[i] != NULL)
 		{
-			if (isdigit(temp[i]) == 0)
+			if (isdigit(temp[i]) == 0) /*0 if not digit*/
 			{
 				f = 1;
 				break;
@@ -124,6 +126,7 @@ void push(stack_t **stack, unsigned int line_number)
 			return;
 		}
 	}
+	/*exit here so don't have to write it twice*/
 	printf("L%d: usage: push integer", vars->line_number);
 	free_token();
 	exit(EXIT_FAILURE);
