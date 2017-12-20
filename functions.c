@@ -1,25 +1,25 @@
 #include "monty.h"
 /**
  * add_stack - add a node at the beggining of a stack_t
- * @head: double pointer to head of list
+ * @h: double pointer to head of list
  * @n: number to add to n member
  * Return: Address of new node or NULL if failed
  */
-stack_t *add_stack(stack_t **head, const int n)
+stack_t *add_stack(void)
 {
 	stack_t *temp = NULL;
+	int n = 0;
+	stack_t *head = vars->head;
 
-	if (head == NULL)
-		return (NULL);
 	temp = malloc(sizeof(stack_t));
 	if (temp == NULL)
 		return (NULL);
-	temp->next = (*head == NULL) ? NULL : *head;
+	temp->next = (head == NULL) ? NULL : head;
 	temp->prev = NULL;
 	temp->n = n;
-	if (*head)
-		(*head)->prev = temp;
-	*head = temp;
+	if (head)
+		head->prev = temp;
+	vars->head = temp;
 	return (temp);
 }
 
@@ -58,7 +58,7 @@ void free_token(void)
 {
 	free(vars->tokened[0]);
 	free(vars->tokened[1]);
-	free(vars->tokened);
+	vars->tokened = NULL;
 }
 
 /**
@@ -69,6 +69,9 @@ void free_token(void)
 void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *head = vars->head;
+
+	(void) stack;
+	(void) line_number;
 
 	while(head)
 	{
@@ -89,7 +92,10 @@ void push(stack_t **stack, unsigned int line_number)
 	int i = 0, f = 0;
 	char *temp = vars->tokened[1];
 
-	newnode = add_stack(vars->head, 0);
+	(void) stack;
+	(void) line_number;
+
+	newnode = add_stack();
 	if (newnode == NULL)
 	{
 		printf("Error: malloc failed");
@@ -107,7 +113,7 @@ void push(stack_t **stack, unsigned int line_number)
 			}
 			i++;
 		}
-		if (f = 0)
+		if (f == 0)
 		{
 			newnode->n = atoi(temp);
 			return;
