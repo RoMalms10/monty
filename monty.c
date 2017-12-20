@@ -37,6 +37,7 @@ int main(int argc, char **argv)
 		find_op();
 		free_token();
 	}
+	free(vars->buf);
 	fclose(fp);
 	return (0);
 }
