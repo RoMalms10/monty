@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 	if (vars->fp == NULL)
 		exit_function(1);
 
-	for (; getline(&(vars->buf), &n, vars->fp) > 0; vars->line_number++)
+	for (; getline(&(vars->buf), &n, vars->fp) != EOF; vars->line_number++)
 	{
 		vars->tokened = malloc(sizeof(char *) * 2);
 		if (vars->tokened == NULL)

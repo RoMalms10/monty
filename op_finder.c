@@ -26,6 +26,10 @@ void find_op(void)
 
 	int x;
 
+	if (vars->tokened[0] == NULL)
+	{
+		return;
+	}
 	for (x = 0; ops[x].opcode != NULL; x++)
 	{
 		if (strcmp(vars->tokened[0], ops[x].opcode) == 0)
