@@ -12,6 +12,7 @@ void find_op(void)
 		{"pint", pint},
 		{"pop", pop},
 		{"nop", nop},
+		{"#", nop},
 		{NULL, NULL}
 	};
 
