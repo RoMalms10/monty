@@ -28,9 +28,10 @@ void pint(stack_t **stack, unsigned int line_number)
   */
 void pop(stack_t **stack, unsigned int line_number)
 {
+	stack_t *traverse;
+
 	(void) stack;
 	(void) line_number;
-	stack_t *current;
 
 	traverse = vars->head->next;
 	if (vars->head == NULL)
