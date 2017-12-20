@@ -20,6 +20,7 @@ void find_op(void)
 		{"nop", nop},
 		{"#", nop},
 		{"pchar", pchar},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 
@@ -34,10 +35,5 @@ void find_op(void)
 		}
 	}
 	if (ops[x].opcode == NULL)
-	{
-		printf("L%d: unknown", vars->line_number);
-		printf(" instruction %s\n", vars->tokened[0]);
-		free_token();
-		exit(EXIT_FAILURE);
-	}
+		exit_function(2);
 }

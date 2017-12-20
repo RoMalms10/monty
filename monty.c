@@ -9,34 +9,31 @@
 vars_t *vars;
 int main(int argc, char **argv)
 {
-//	char *buf = NULL;
 	size_t n = 0;
-	FILE *fp;
-	vars_t temp = {NULL, NULL, NULL, 1};
+	vars_t temp = {NULL, NULL, NULL, NULL, NULL, 1};
 
 	vars = &temp;
+	vars->fname = argv[1];
 	if (argc != 2)
-	{
-		printf("USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
+		exit_function(16);
 
-	fp = fopen(argv[1], "r");
-	if (fp == NULL)
-	{
-		printf("Error: Can't open file %s\n", argv[1]);
-		exit(EXIT_FAILURE);
-	}
+	vars->fp = fopen(argv[1], "r");
+	if (vars->fp == NULL)
+		exit_function(1);
 
-	for (; getline(&(vars->buf), &n, fp) > 0; vars->line_number++)
+	for (; getline(&(vars->buf), &n, vars->fp) > 0; vars->line_number++)
 	{
 		vars->tokened = malloc(sizeof(char *) * 2);
 		if (vars->tokened == NULL)
-			printf("Error: malloc failed\n");
+			exit_function(3);
 		tokenize(vars->buf);
 		find_op();
+		free_buf();
 		free_token();
 	}
-	fclose(fp);
+	free_buf();
+	free_list(vars->head);
+	free_token();
+	fclose(vars->fp);
 	return (0);
 }

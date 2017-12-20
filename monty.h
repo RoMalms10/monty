@@ -39,6 +39,8 @@ typedef struct instruction_s
 
  /**
   * struct vars_s - holds all variables to be passed
+  * @fname: string holding file name
+  * @fp: file pointer to open file
   * @tokened: tokenized string of our input from file
   * @head: head of our stack
   * @line_number: line number that was just read from file
@@ -49,8 +51,10 @@ typedef struct instruction_s
   */
  typedef struct vars_s
  {
+        char *fname;
+        FILE *fp;
         char **tokened;
-	char *buf;
+        char *buf;
         struct stack_s *head;
         unsigned int line_number;
  } vars_t;
@@ -59,7 +63,6 @@ extern vars_t *vars;
 /* Stack functions functions.c */
 stack_t *add_stack(void);
 void tokenize(char *buf);
-void free_token(void);
 void pall(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
 /* More stack functions functions_2.c */
@@ -67,7 +70,7 @@ void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
-/* Calculation functions functions_3.c */
+/* Calculation functions calc_func.c */
 void add(stack_t **stack, unsigned int line_number);
 void divf(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
@@ -77,5 +80,11 @@ void mod(stack_t **stack, unsigned int line_number);
 void find_op(void);
 /* Stack function in functions_4.c */
 void pchar(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int line_number);
+/* Exit, free, and error handling error.c */
+void free_buf(void);
+void free_token(void);
+void free_list(stack_t *head);
+void exit_function(unsigned int err_num);
 
 #endif
