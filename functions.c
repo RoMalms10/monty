@@ -9,7 +9,6 @@ void tokenize(char *buf)
 {
 	char *token;
 	char *delim;
-//	char *token[2];
 	int i;
 
 	delim = " '\n'";
@@ -24,7 +23,6 @@ void tokenize(char *buf)
 			printf("Error: malloc failed\n");
 			exit(EXIT_FAILURE);
 		}
-//		vars->tokened[i] = tokened[i];
 		token = strtok(NULL, delim);
 	}
 }
