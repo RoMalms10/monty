@@ -9,7 +9,6 @@
 vars_t *vars;
 int main(int argc, char **argv)
 {
-//	char *buf = NULL;
 	size_t n = 0;
 	FILE *fp;
 	vars_t temp = {NULL, NULL, NULL, 1};
