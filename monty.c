@@ -10,10 +10,9 @@ vars_t *vars;
 int main(int argc, char **argv)
 {
 	char *buf = NULL;
-	int n = 0;
+	size_t n = 0;
 	FILE *fp;
-	int l_count;
-	vars_t temp = {NULL, NULL, 1};
+	vars_t temp = {NULL, NULL, 0};
 
 	vars = &temp;
 	if (argc != 2)
@@ -29,12 +28,17 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 
-	for (l_count = 1; getline(&buf, &n, fp) > 0; l_count++)
+	for (; getline(&buf, &n, fp) > 0; vars->line_number++)
 	{
-		/*vars->line_number = l_count;*/
+		vars->tokened = malloc(sizeof(char *) * 2);
 		tokenize(buf);
 		/*pass to find function*/
 		/*pass to execute function*/
+		free_token();
 	}
+//	printf("Argument 1: %s\n", vars->tokened[0]);
+//	printf("Argument 2: %s\n", vars->tokened[1]);
+//	printf("Line number: %d\n", vars->line_number);
+	fclose(fp);
 	return (0);
 }
