@@ -49,6 +49,7 @@ typedef struct instruction_s
   */
  typedef struct vars_s
  {
+	FILE *fp;
         char **tokened;
 	char *buf;
         struct stack_s *head;
