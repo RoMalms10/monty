@@ -42,6 +42,7 @@ typedef struct instruction_s
   * @tokened: tokenized string of our input from file
   * @head: head of our stack
   * @line_number: line number that was just read from file
+  * @buf: buffer for the line in the file
   *
   * Description: A struct that we make global to pass variables
   *  for stack, queues, LIFO, FIFO holberton project
@@ -49,6 +50,7 @@ typedef struct instruction_s
  typedef struct vars_s
  {
         char **tokened;
+	char *buf;
         struct stack_s *head;
         unsigned int line_number;
  } vars_t;
@@ -73,5 +75,7 @@ void sub(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
 /* Function finder op_finder.c */
 void find_op(void);
+/* Stack function in functions_4.c */
+void pchar(stack_t **stack, unsigned int line_number);
 
 #endif
