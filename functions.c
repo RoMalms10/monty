@@ -78,7 +78,8 @@ void pall(stack_t **stack, unsigned int line_number)
 
 	(void) stack;
 	(void) line_number;
-
+	if (head == NULL)
+		return;
 	while(head)
 	{
 		printf("%d\n", head->n);
@@ -105,7 +106,7 @@ void push(stack_t **stack, unsigned int line_number)
 	newnode = add_stack();
 	if (newnode == NULL)
 	{
-		printf("Error: malloc failed");
+		printf("Error: malloc failed\n");
 		free_token();
 		exit(EXIT_FAILURE);
 	}
@@ -127,7 +128,7 @@ void push(stack_t **stack, unsigned int line_number)
 		}
 	}
 	/*exit here so don't have to write it twice*/
-	printf("L%d: usage: push integer", vars->line_number);
+	printf("L%d: usage: push integer\n", vars->line_number);
 	free_token();
 	exit(EXIT_FAILURE);
 }

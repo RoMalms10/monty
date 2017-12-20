@@ -47,6 +47,31 @@ void pop(stack_t **stack, unsigned int line_number)
 }
 
 /**
+ * swap - swaps the top two numbers of the stack
+ * @stack: not used
+ * @line_number: not used
+ * Return: void
+ */
+void swap(stack_t **stack, unsigned int line_number)
+{
+	int temp = 0;
+
+	(void) stack;
+	(void) line_number;
+	if (vars->head != NULL)
+	{
+		temp = vars->head->n;
+		vars->head->n = vars->head->next->n;
+		vars->head->next->n = temp;
+	}
+	else
+	{
+		printf("L%d: can't swap, stack too short\n", vars->line_number);
+		free_token();
+		exit(EXIT_FAILURE);
+	}
+  
+ /**
   * nop - function that does nothing
   * @stack: the double pointer to the head (NULL)
   * @line_number: the line we're on (always passed 0)

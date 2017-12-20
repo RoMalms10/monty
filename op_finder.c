@@ -11,6 +11,12 @@ void find_op(void)
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
+		{"div", divf},
+		{"add", add},
+		{"swap", swap},
+		{"mul", mul},
+		{"mod", mod},
+		{"sub", sub},
 		{"nop", nop},
 		{"#", nop},
 		{NULL, NULL}
@@ -29,7 +35,7 @@ void find_op(void)
 	if (ops[x].opcode == NULL)
 	{
 		printf("L%d: unknown", vars->line_number);
-		printf(" instruction %s\n", vars->tokened[0]); 
+		printf(" instruction %s\n", vars->tokened[0]);
 		free_token();
 		exit(EXIT_FAILURE);
 	}
