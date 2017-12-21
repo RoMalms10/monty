@@ -62,7 +62,7 @@ void divf(stack_t **stack, unsigned int line_number)
 		exit_function(13);
 	if (vars->head != NULL && vars->head->next != NULL)
 	{
-		vars->head->next->n = vars->head->next->n / vars->head->n;
+		vars->head->next->n = vars->head->n / vars->head->next->n;
 		vars->head = vars->head->next;
 		free(vars->head->prev);
 		vars->head->prev = NULL;
@@ -112,7 +112,7 @@ void mod(stack_t **stack, unsigned int line_number)
 		exit_function(13);
 	if (vars->head != NULL && vars->head->next != NULL)
 	{
-		vars->head->next->n = vars->head->next->n % vars->head->n;
+		vars->head->next->n = vars->head->n % vars->head->next->n;
 		vars->head = vars->head->next;
 		free(vars->head->prev);
 		vars->head->prev = NULL;
