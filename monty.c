@@ -1,12 +1,13 @@
 #include "monty.h"
 
+vars_t *vars;
+
 /**
   * main - Entry Point
   * @argc: Number of arguments
   * @argv: Arguments names
   * Return: 0 on success, exit on failures
   */
-vars_t *vars;
 int main(int argc, char **argv)
 {
 	size_t n = 0;
