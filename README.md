@@ -1,8 +1,11 @@
 # Monty Language Interpreter
 ## Synopsis
-## Environment
-## Repository Contents
+This project was built in an effort to learn about stacks and queues and how to implement them by interpreting monty scripts (files that end in .m).
 
+## Environment
+This project was built and tested in the Ubuntu 14.04 LTS via Vagrant in VirtualBox.
+
+## Repository Contents
 #### Files ending in .c
 
 > calc\_func.c - *Contains functions used to perform calculations on the stack*
@@ -31,7 +34,7 @@
 | add_stack     | adds a node at the beginning of the stack |
 | tokenize      | tokenizes a line in a file into separate strings |
 | pall          | prints all integers in the stack, starting from the top |
-| push          | adds a node to the top pf the stack in stack mode, bottom of the stack in queue mode |
+| push          | adds a node to the top of the stack in stack mode, bottom of the stack in queue mode |
 
 > functions_2.c - *Contains functions that read and manipulate the stack*
 
@@ -68,3 +71,50 @@
 - monty.h - *Header file; Contains function, struct and global variable declarations*
 - AUTHORS - *Contains the Authors of this program along with their emails*
 - bytecodes - *A directory containing test files used while making this program*
+
+## How to install
+1. Clone the repository below
+
+`https://github.com/RoMalms10/monty`
+
+2. \(optional) Compile the program again
+
+`gcc -Wall -Werror -Wextra -pedantic *.c -o monty`
+
+3. Run the program with the following usage:
+   - Usage: `monty <file.m>`
+   - ex: `./monty ./bytecodes/00.m`
+
+## Example
+```
+RoMalms10$ cat -e bytecodes/000.m
+push 0$
+push 1$
+push 2$
+  push 3$
+                   pall    $
+push 4$
+    push 5    $
+      push    6        $
+pall$
+RoMalms10$ ./monty ./bytecodes/000.m
+3
+2
+1
+0
+6
+5
+4
+3
+2
+1
+0
+RoMalms10$
+```
+
+## Bugs
+No bugs found yet
+   
+## Authors
+* [**Robert Malmstein**](https://github.com/RoMalms10)
+* [**Thomas Dumont**](https://github.com/vilyanare)
