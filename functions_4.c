@@ -42,3 +42,50 @@ void pstr(stack_t **stack, unsigned int line_number)
 	}
 	putchar('\n');
 }
+
+/**
+ * rotl - top node of stack becomes last second top becomes top
+ * @stack: not used
+ * @line_number: not used
+ * Return: void
+ */
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *end = vars->head, *head = vars->head;
+
+	(void) stack;
+	(void) line_number;
+	if (end)
+	{
+		while (end->next)
+			end = end->next;
+		vars->head = head->next;
+		head->prev = end;
+		head->next = NULL;
+		end->next = head;
+		vars->head->prev = NULL;
+	}
+}
+
+/**
+ * rotr - reverse order of list
+ * @stack: not used
+ * @line_number: not used
+ * Return: void
+ */
+void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *p1 = vars->head, *p2 = vars->head;
+
+	(void) stack;
+	(void) line_number;
+	while (p1 != NULL)
+	{
+		p2 = p2->next;
+		p1->next = p1->prev;
+		p1->prev = p2;
+		if (p2 == NULL)
+			vars->head = p1;
+		p1 = p2;
+	}
+}
