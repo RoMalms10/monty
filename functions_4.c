@@ -55,7 +55,7 @@ void rotl(stack_t **stack, unsigned int line_number)
 
 	(void) stack;
 	(void) line_number;
-	if (end)
+	if (end && end->next)
 	{
 		while (end->next)
 			end = end->next;
