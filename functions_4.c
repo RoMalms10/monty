@@ -11,8 +11,10 @@ void pchar(stack_t **stack, unsigned int line_number)
 	(void) stack;
 	(void) line_number;
 
-	if (vars->head->n < 0 || vars->head->n > 127)
+	if (vars->head == NULL)
 		exit_function(15);
+	if (vars->head->n < 0 || vars->head->n > 127)
+		exit_function(14);
 	putchar(vars->head->n);
 	putchar('\n');
 }
