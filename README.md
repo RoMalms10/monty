@@ -6,6 +6,68 @@ This project was built in an effort to learn about stacks and queues and how to 
 ## Environment
 This project was built and tested in the Ubuntu 14.04 LTS via Vagrant in VirtualBox.
 
+## How to install
+1. Clone the repository below
+
+`https://github.com/RoMalms10/monty`
+
+2. \(optional) Compile the program again
+
+`gcc -Wall -Werror -Wextra -pedantic *.c -o monty`
+
+3. Run the program with the following usage:
+   - Usage: `monty <file.m>`
+   - ex: `./monty ./bytecodes/00.m`
+
+## Available opcodes
+
+| Opcode Name   | Opcode Description |
+| :-----------: | :------------------- |
+| push          | *pushes an element on to the stack* |
+| pall          | *prints all the values on the stack, starting from the top* |
+| pint          | *prints the value at the top of the stack* |
+| pop           | *removes the top element of the stack* |
+| swap          | *swaps the top two elements of the stack* |
+| add           | *adds the top two elements of the stack* |
+| nop           | *doesn't do anything* |
+| sub           | *subtracts the top element of the stack from the second top element of the stack* |
+| div           | *divides the second top element of the stack by the top element of the stack* |
+| mul           | *multiplies the second top element of the stack with the top element of the stack* |
+| mod           | *computes the modulus of the second top element of the stack by the top element of the stack* |
+| comments (#)  | *add a # to the beginning of the line to comment in the file* |
+| pchar         | *prints the ASCII equivalent of the number at the top of the stack* |
+| pstr          | *prints the ASCII equivalent of the numbers stored in each element in the stack, starting from the top* |
+| rotl          | *rotates the top element of the stack to the bottom of the stack* |
+| rotr          | *rotates the bottom element of the stack to the top of the stack* |
+
+
+## Example
+```
+RoMalms10$ cat -e bytecodes/000.m
+push 0$
+push 1$
+push 2$
+  push 3$
+                   pall    $
+push 4$
+    push 5    $
+      push    6        $
+pall$
+RoMalms10$ ./monty ./bytecodes/000.m
+3
+2
+1
+0
+6
+5
+4
+3
+2
+1
+0
+RoMalms10$
+```
+
 ## Repository Contents
 #### Files ending in .c
 
@@ -72,46 +134,6 @@ This project was built and tested in the Ubuntu 14.04 LTS via Vagrant in Virtual
 - monty.h - *Header file; Contains function, struct and global variable declarations*
 - AUTHORS - *Contains the Authors of this program along with their emails*
 - bytecodes - *A directory containing test files used while making this program*
-
-## How to install
-1. Clone the repository below
-
-`https://github.com/RoMalms10/monty`
-
-2. \(optional) Compile the program again
-
-`gcc -Wall -Werror -Wextra -pedantic *.c -o monty`
-
-3. Run the program with the following usage:
-   - Usage: `monty <file.m>`
-   - ex: `./monty ./bytecodes/00.m`
-
-## Example
-```
-RoMalms10$ cat -e bytecodes/000.m
-push 0$
-push 1$
-push 2$
-  push 3$
-                   pall    $
-push 4$
-    push 5    $
-      push    6        $
-pall$
-RoMalms10$ ./monty ./bytecodes/000.m
-3
-2
-1
-0
-6
-5
-4
-3
-2
-1
-0
-RoMalms10$
-```
 
 ## Bugs
 No bugs found yet

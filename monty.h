@@ -51,6 +51,7 @@ typedef struct instruction_s
  */
 typedef struct vars_s
 {
+	int IFO;
 	char *fname;
 	FILE *fp;
 	char **tokened;
@@ -62,6 +63,7 @@ typedef struct vars_s
 extern vars_t *vars;
 /* Stack functions functions.c */
 stack_t *add_stack(void);
+stack_t *add_stack_end(void);
 void tokenize(char *buf);
 void pall(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
@@ -88,5 +90,8 @@ void free_buf(void);
 void free_token(void);
 void free_list(stack_t *head);
 void exit_function(unsigned int err_num);
+/* Changes between Stack and Queue in sandq_func.c */
+void stack(stack_t **stack, unsigned int line_number);
+void queue(stack_t **stack, unsigned int line_number);
 
 #endif
