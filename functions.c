@@ -68,7 +68,7 @@ void pall(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * push - print all integers in a stack_t list
+ * push - add elements to list
  * @stack: NULL
  * @line_number: 0
  * Return: nothing, void
@@ -81,7 +81,7 @@ void push(stack_t **stack, unsigned int line_number)
 
 	(void) stack;
 	(void) line_number;
-	newnode = add_stack();
+	newnode = vars->IFO == 1 ? add_stack_end() : add_stack();
 	if (newnode == NULL)
 		exit_function(3);
 	if (temp != NULL)

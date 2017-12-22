@@ -11,7 +11,7 @@ vars_t *vars;
 int main(int argc, char **argv)
 {
 	size_t n = 0;
-	vars_t temp = {NULL, NULL, NULL, NULL, NULL, 1};
+	vars_t temp = {0, NULL, NULL, NULL, NULL, NULL, 1};
 
 	vars = &temp;
 	vars->fname = argv[1];
