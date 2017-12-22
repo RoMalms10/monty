@@ -6,7 +6,6 @@
 stack_t *add_stack(void)
 {
 	stack_t *temp = NULL;
-	int n = 0;
 	stack_t *head = vars->head;
 
 	temp = malloc(sizeof(stack_t));
@@ -14,7 +13,6 @@ stack_t *add_stack(void)
 		return (NULL);
 	temp->next = (head == NULL) ? NULL : head;
 	temp->prev = NULL;
-	temp->n = n;
 	if (head)
 		head->prev = temp;
 	vars->head = temp;
@@ -113,4 +111,33 @@ void push(stack_t **stack, unsigned int line_number)
 		}
 	}
 	exit_function(4); /*exit here so don't have to write it twice*/
+}
+
+/**
+  * add_stack_end - adds an element to the end of the stack (FIFO, queue only)
+  * Return: address of new node or NULL if failed
+  */
+stack_t *add_stack_end(void)
+{
+	stack_t *temp = NULL;
+	stack_t *head = vars->head;
+	stack_t *traverse;
+
+	temp = malloc(sizeof(stack_t));
+	if (temp == NULL)
+		return (NULL);
+	if (head == NULL)
+	{
+		temp = add_stack();
+	}
+	else
+	{
+		traverse = head;
+		while (traverse->next != NULL)
+			traverse = traverse->next;
+		temp->next = NULL;
+		temp->prev = traverse;
+		traverse->next = temp;
+	}
+	return (temp);
 }
