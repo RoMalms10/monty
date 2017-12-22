@@ -128,6 +128,7 @@ stack_t *add_stack_end(void)
 		return (NULL);
 	if (head == NULL)
 	{
+		free(temp);
 		temp = add_stack();
 	}
 	else
