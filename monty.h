@@ -39,6 +39,7 @@ typedef struct instruction_s
 
 /**
  * struct vars_s - holds all variables to be passed
+ * @IFO: flag to determine stack(0) or queue(1)
  * @fname: string holding file name
  * @fp: file pointer to open file
  * @tokened: tokenized string of our input from file
