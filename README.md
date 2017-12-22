@@ -1,4 +1,5 @@
 # Monty Language Interpreter
+
 ## Synopsis
 This project was built in an effort to learn about stacks and queues and how to implement them by interpreting monty scripts (files that end in .m).
 
@@ -116,5 +117,5 @@ RoMalms10$
 No bugs found yet
    
 ## Authors
-* [**Robert Malmstein**](https://github.com/RoMalms10)
-* [**Thomas Dumont**](https://github.com/vilyanare)
+* Robert Malmstein [**Github**](https://github.com/RoMalms10)
+* Thomas Dumont [**Github**](https://github.com/vilyanare)
